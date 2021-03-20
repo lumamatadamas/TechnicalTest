@@ -47,5 +47,33 @@ namespace TechnicalTest
 
             return true;
         }
+
+        /// <summary>
+        /// Return the compressed string from a given string, if the compressed string length is greater than
+        /// the original, the original string is returned
+        /// </summary>
+        /// <param name="strToCompress">string that will be compressed</param>
+        /// <returns>(string) </returns>
+        public static string GetCompressedStr(string strToCompress)
+        {
+            if (string.IsNullOrWhiteSpace(strToCompress)) return strToCompress;
+
+            StringBuilder compressedStr = new StringBuilder();
+            for (int i = 0; i < strToCompress.Length;)
+            {
+                int numRepetition = 0;
+                char currentChar = strToCompress[i];
+                do {
+                    numRepetition++;
+                    i++;
+                } while (i < strToCompress.Length && currentChar == strToCompress[i]);
+
+                compressedStr.Append(currentChar).Append(numRepetition);
+
+                if (compressedStr.ToString().Length > strToCompress.Length) return strToCompress;
+            }
+
+            return compressedStr.ToString();
+        }
     }
 }

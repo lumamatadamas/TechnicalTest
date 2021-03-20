@@ -19,8 +19,8 @@ namespace TechnicalTest
                 Console.WriteLine("\nEnter a Sentence or press q to exit");
 
                 sentence = Console.ReadLine();
-                bool isPalindrome = TechnicalTestFunctions.IsPalindrome(sentence);
-                Console.WriteLine(isPalindrome);
+                string compressedString = TechnicalTestFunctions.GetCompressedStr(sentence);
+                Console.WriteLine(compressedString);
             } while (sentence != "q");
         }
     }
