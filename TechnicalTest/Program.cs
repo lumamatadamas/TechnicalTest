@@ -19,8 +19,8 @@ namespace TechnicalTest
                 Console.WriteLine("\nEnter a Sentence or press q to exit");
 
                 sentence = Console.ReadLine();
-                int numVowals = TechnicalTestFunctions.CountVowels(sentence);
-                Console.WriteLine(numVowals);
+                bool isPalindrome = TechnicalTestFunctions.IsPalindrome(sentence);
+                Console.WriteLine(isPalindrome);
             } while (sentence != "q");
         }
     }
