@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+
 
 namespace TechnicalTest
 {
     public static class TechnicalTestFunctions
     {
+        private static Dictionary<decimal, decimal> CalculatedFib = new Dictionary<decimal, decimal>();
         /// <summary>
         /// Returns the number of vowels it has
         /// </summary>
@@ -74,6 +74,56 @@ namespace TechnicalTest
             }
 
             return compressedStr.ToString();
+        }
+
+        /// <summary>
+        /// Calculate the Fibonacci secuence of a given number
+        /// </summary>
+        /// <param name="n">term number</param>
+        /// <returns></returns>
+        private static decimal Fibonacci(decimal n)
+        {
+            if (n == 0)
+            {
+                if (!CalculatedFib.ContainsKey(n))
+                {
+                    CalculatedFib.Add(n, 0);
+                }
+                return 0;
+            }
+
+            if (n == 1)
+            {
+                if (!CalculatedFib.ContainsKey(n))
+                {
+                    CalculatedFib.Add(n, 1);
+                }
+                return 1;
+            }
+
+            if (CalculatedFib.ContainsKey(n))
+            {
+                return CalculatedFib[n];
+            }
+
+            decimal newFibNumber = Fibonacci(n - 1) + Fibonacci(n - 2);
+            CalculatedFib.Add(n, newFibNumber);
+            return newFibNumber;
+        }
+
+        /// <summary>
+        /// Return a list of the Fibonacci secuence using n as term number
+        /// </summary>
+        /// <param name="n">term number</param>
+        /// <returns>qpwojdpoqjd´qpwojdqpowjd</returns>
+        public static string CalculateFibSeries(decimal n)
+        {
+            Fibonacci(n);
+
+            var fibSerie = CalculatedFib.Select(f => 
+                string.Format("{0}\t:\t{1}", f.Key.ToString() ,f.Value.ToString()));
+
+            return string.Join("\n", fibSerie);
         }
     }
 }

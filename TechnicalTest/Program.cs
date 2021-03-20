@@ -13,15 +13,8 @@ namespace TechnicalTest
 
         static void Main(string[] args)
         {
-            string sentence = string.Empty;
-            do
-            {
-                Console.WriteLine("\nEnter a Sentence or press q to exit");
-
-                sentence = Console.ReadLine();
-                string compressedString = TechnicalTestFunctions.GetCompressedStr(sentence);
-                Console.WriteLine(compressedString);
-            } while (sentence != "q");
+            Console.WriteLine(TechnicalTestFunctions.CalculateFibSeries(100));
+            Console.ReadLine();
         }
     }
 }
