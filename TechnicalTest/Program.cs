@@ -46,7 +46,12 @@ namespace TechnicalTest
             //Console.WriteLine("\nFirsts 100 numbers or Fibonacci secuence");
             //Console.WriteLine(TechnicalTestFunctions.CalculateFibSeries());
             //Console.ReadLine();
-         
+
+            ////Excersice 6 
+            string[] words = new string[] { "CarS", "REPAID", "DUES", "NOSE", "SIgneD", "LANE", "PAIRED", "ARCS", "GRAB", "USED", "OneS", "BraG", "SUED", "LEan", "scAR", "DESIGN" };
+            Console.WriteLine(TechnicalTestFunctions.GetSortedAnagrams(words));
+            Console.ReadLine();
+
         }
     }
 }
