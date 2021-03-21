@@ -14,19 +14,19 @@ namespace TechnicalTest
         /// </summary>
         /// <param name="strInput">string</param>
         /// <returns>(int) number of vowels</returns>
-        public static int CountVowels(string strInput)
+        public static string CountVowels(string strInput)
         {
-            if (string.IsNullOrWhiteSpace(strInput)) return 0;
+            if (string.IsNullOrWhiteSpace(strInput)) return string.Format("{0} has {1} vowels", strInput, 0);
 
             char[] vowals = { 'a', 'e', 'i', 'o', 'u' };
 
             int vowalsNum = strInput.ToLower().Count(c => vowals.Contains(c));
 
-            return vowalsNum;
+            return string.Format("{0} has {1} vowels\n", strInput, vowalsNum);
         }
 
         /// <summary>
-        /// Returns true if strInput is palindrome false if it is not
+        /// Returns a string saying if a given string is palindrome or not
         /// </summary>
         /// <param name="strInput">string</param>
         /// <returns>(bool) is strInput a palindrome or not</returns>
@@ -116,9 +116,10 @@ namespace TechnicalTest
         /// </summary>
         /// <param name="n">term number</param>
         /// <returns></returns>
-        public static string CalculateFibSeries(decimal n)
+        public static string CalculateFibSeries()
         {
-            Fibonacci(n);
+            //Calculate fibonacci series of 100
+            Fibonacci(100);
 
             var fibSerie = CalculatedFib.Select(f => 
                 string.Format("{0}\t:\t{1}", f.Key.ToString() ,f.Value.ToString()));
@@ -131,7 +132,7 @@ namespace TechnicalTest
         /// </summary>
         /// <param name="words">array of strings</param>
         /// <returns></returns>
-        public static string GetSortedAnagram(string[] words)
+        public static string GetSortedAnagrams(string[] words)
         {
             if (words.Length == 0 || words == null)
                 return string.Empty;
